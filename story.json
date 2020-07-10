@@ -1,0 +1,96 @@
+{
+  "characters": ["B", "B-5", "A-9"],
+  "objects": ["X"],
+  "plotPoints": [
+      {"text": "After a mysterious absence of many years, you return to your old home town, though you have forgotten much of your life. Returning as an Unknown to your native place, you discover that no one recognizes you. By chance, you overhear a scrap of conversation in the street; and what you overhear proves a clue to the whereabouts of stolen property, _X_.",
+       "preconditions": [],
+       "achieves": ["HASNT_CHOSEN", "HEARD_OF_X"],
+       "removes": [],
+       "feelings": []
+      },
+      {"text": "You, in a half doze, overhear a chance conversation that implies _X_ has actually been STOLEN; but you are in doubt as to whether you overheard a real conversation, or were deceived by a dreaming mind.",
+       "preconditions": ["HASNT_CHOSEN", "HEARD_OF_X"],
+       "achieves": ["HAD_DREAM"],
+       "removes": [],
+       "feelings": ["sleepy", "lucky", "heroic"]
+      },
+      {"text": "You are at your wits’ end in an attempt to solve a puzzling riddle mentioned in what you overheard. Eventually, through what you hear, you figure out where a certain object, _X_, small but immensely valuable, has been concealed. To secure _X_, you must proceed warily and without arousing suspicion.",
+       "preconditions": ["HASNT_CHOSEN", "HEARD_OF_X"],
+       "achieves": ["LOCATION_OF_X", "WONT_SAVE_B", "NO_SWITCH"],
+       "feelings": ["greedy", "ambitious", "sneaky"],
+       "removes": ["HASNT_CHOSEN"]
+      },
+      {"text": "But the conversation implies a certain _B_ has stolen it. You, working “under cover,” contrive to prove _B_’s innocent of theft. You discover the guilt of _B-5_, a criminal whom _B_ physically resembles. _B-5_ discovers your plot, and takes their revenge! You must save _B_ from a ferocious wild animal they have set after them!",
+       "preconditions": ["HEARD_OF_X", "HAD_DREAM"],
+       "achieves": ["HEARD_OF_B", "WONT_SEARCH_TREASURE"],
+       "feelings": ["heroic", "perceptive", "just"],
+       "removes": ["HASNT_CHOSEN"]
+      },
+      {"text": "_B_, though they do not know you, is rescued from the incident and falls in love with you.",
+       "preconditions": ["HEARD_OF_X", "HEARD_OF_B", "WONT_SEARCH_TREASURE"],
+       "achieves": ["TERMINAL"],
+       "feelings": ["romantic", "heroic"],
+       "removes": []
+      },
+      {"text": "After the rescue, _B_ offers to marry you and, as your partner, help you to rebuild your forgotten life.",
+       "preconditions": ["HEARD_OF_X", "HEARD_OF_B", "WONT_SEARCH_TREASURE"],
+       "achieves": ["TERMINAL"],
+       "feelings": ["guilty", "sad"],
+       "removes": []
+      },
+      {"text": "Something is wrong -- your memory returns! _B_ is your partner, from whom you were trying to divorce. The rescue has gravely injured you, and you reconcile with _B_ through your recovery.",
+       "preconditions": ["HEARD_OF_X", "HEARD_OF_B", "WONT_SEARCH_TREASURE"],
+       "achieves": ["TERMINAL"],
+       "feelings": ["confused", "on edge"],
+       "removes": []
+      },
+      {"text": "You fight against the danger but it’s too difficult! Not to worry, though. _B_ saves YOU!",
+       "preconditions": ["HEARD_OF_X", "HEARD_OF_B", "WONT_SEARCH_TREASURE"],
+       "achieves": ["TERMINAL"],
+       "feelings": ["nervous", "noble"],
+       "removes": []
+      },
+      {"text": "You are a crook, after all. In order to find the people responsible for _X_, you disguise yourself as a person of wealth and social standing.",
+       "preconditions": ["LOCATION_OF_X", "HEARD_OF_X","WONT_SAVE_B", "NO_SWITCH"],
+       "achieves": ["FAKE_RICH", "NO_SWITCH"],
+       "feelings": ["sneaky", "glamorous", "ambitious"],
+       "removes": []
+      },
+      {"text": "You follow the clues and find the _X_; but is it fake? You see another in _A-9_’s window that looks exactly the same; perhaps this is some kind of further secret. You switch the _X_.",
+       "preconditions": ["LOCATION_OF_X", "HEARD_OF_X", "WONT_SAVE_B", "NO_SWITCH"],
+       "achieves": ["SWITCH_X"],
+       "feelings": ["crafty", "sharp", "suspicious"],
+       "removes": ["NO_SWITCH"]
+      },
+      {"text": "You take the _X_ to an appraiser. No such luck; THIS is the fake! You have fallen right into _A-9_’s plan.",
+       "preconditions": ["LOCATION_OF_X", "HEARD_OF_X", "SWITCH_X", "WONT_SAVE_B"],
+       "achieves": ["TERMINAL"],
+       "feelings": ["satisfied", "smart", "clever"],
+       "removes": []
+      },
+
+      {"text": "You carry the _X_ everywhere you go. As you do, you notice all sorts of misfortunes befalling you. What has happened to you?",
+       "preconditions": ["HEARD_OF_X","LOCATION_OF_X", "SWITCH_X", "WONT_SAVE_B"],
+       "achieves": ["TERMINAL"],
+       "feelings": ["mystified", "guilty"],
+       "removes": []
+      },
+      {"text": "While pretending to be wealthy, you actually BECOME wealthy! You forget all about the _X_, and live your life. Eventually, you check in on your crook friends. They are all married and have “gone straight”. Should you do the same? ",
+       "preconditions": ["HEARD_OF_X", "LOCATION_OF_X", "FAKE_RICH", "WONT_SAVE_B", "NO_SWITCH"],
+       "achieves": ["TERMINAL"],
+       "feelings": ["dissatisfied", "bored"],
+       "removes": []
+      },
+      {"text": "You find a wealthy person alone, bathing in a mountain stream. You decide to rob them, put on their clothes, take their horse and flee. What will be your new life?",
+       "preconditions": ["HEARD_OF_X", "FAKE_RICH", "WONT_SAVE_B", "NO_SWITCH"],
+       "achieves": ["TERMINAL"],
+       "feelings": ["immoral", "crafty"],
+       "removes": []
+      },
+      {"text": "Through hanging around with the wealthy, you find and befriend _A-9_, the owner of X. You work hard and make a counterfeit X, and switch it out while they’re not looking. But you’ve grown fond of _A-9_, and this act casts a pall over you....",
+       "preconditions": ["HEARD_OF_X", "FAKE_RICH", "WONT_SAVE_B", "NO_SWITCH"],
+       "achieves": ["TERMINAL"],
+       "feelings": ["industrious", "amiable"]
+      }
+  ]
+}
