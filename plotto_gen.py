@@ -1,15 +1,7 @@
 import json
 import random
 
-class PlottoGen():
-    def __init__(self):
-        with open("./story.json") as f:
-            story_map = json.load(f)
-            self.story = story_map["plotPoints"]
-            characters = story_map["characters"]
-            objects = story_map["objects"]
-
-        self.namestore = [
+NAMESTORE = [
             "Cason Jyothi",
             "Tamar Emilia",
             "Vencel Blanche",
@@ -26,19 +18,42 @@ class PlottoGen():
             "Leocadio Kleon"
         ]
 
+ITEMSTORE = [
+            "Mystic Scroll",
+            "Vial of Exotic Perfume",
+            "Vein of Aquamarine",
+            "Tooled Leather-bound Book",
+            "Bolt of Gold Cloth",
+            "Marble Miniature of a Temple set with Blue Quartz",
+            "Painting by a Legendary Master",
+            "Rare Bird with Jeweled Feathers",
+            "Fine Tapestry Trimmed in Ermine",
+            "Extinct Creature Encased in Amber"
+        ]
+
+class PlottoGen():
+    def __init__(self):
+        with open("./story.json") as f:
+            story_map = json.load(f)
+            self.story = story_map["plotPoints"]
+            characters = story_map["characters"]
+            objects = story_map["objects"]
+
+        item = random.choice(ITEMSTORE)
         for character in characters:
             new_name = self.generate_name()
             for step in self.story:
                 step["text"] = step["text"].replace(f'_{character}_', new_name)
+                step["text"] = step["text"].replace('_X_', item)
 
         self.step = 0
         self.achieved = set()
         self.feelings = []
 
     def generate_name(self):
-        name_index = random.randrange(len(self.namestore))
-        name = self.namestore[name_index]
-        del self.namestore[name_index]
+        name_index = random.randrange(len(NAMESTORE))
+        name = NAMESTORE[name_index]
+        del NAMESTORE[name_index]
         return name
 
     def get_next_feelings(self):
